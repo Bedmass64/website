@@ -1,0 +1,43 @@
+* {
+    box-sizing: boarder-box;
+    color:blueviolet;
+}
+
+html, body{
+    margin:0;
+    padding:0; /* 'applicable for all html elements */
+
+}
+/*
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-
+    gradient(rgba(4,9,30, 0.7),rgba(4,9,30, 0.7)), url(images/ComputerPhoto.png);
+    background-position: center; 
+ }
+ */
+
+ .main-nav ul{
+    margin:0;
+    padding: 0;
+ }
+ 
+ .main-nav li{
+    display: inline
+ }
+
+.main-header{
+    background-color: rgba(0,0,0,0.2);
+    background-image: url("Photos/keyboard.jpg");
+    background-blend-mode: multiply;
+    background-size: cover;
+    padding-bottom: 30px;
+    padding-top: 10px;
+}
+
+.header-name {
+    font-family:'Courier New', Courier, monospace;
+    position: center;
+    border: 100px;
+ }

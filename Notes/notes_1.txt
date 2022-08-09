@@ -1,0 +1,33 @@
+Task: to create an image backround for the header selector.
+
+
+Something like the syntax: 
+
+<html>
+    <head>
+    <link rel="stylesheet" href="(nameOfStyleSheet)">   <-- Links the css style sheet
+    </head>
+
+    <body>
+        <header class="somethingClass">        <--- Use class 
+        //(Do I use css or html?) css
+
+        </header>
+    </body>  
+</html> 
+
+
+
+Second file (style.css):
+
+
+.somethingClass {   <-- Selector
+
+backround-image: url("fileName/nameOfImage.png")
+    ^               ^
+    |               |
+(property)      (value)
+}
+
+
+

@@ -1,0 +1,216 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+.center {
+    text-align: center;
+} 
+
+.schooling {
+    padding: 4%;
+    color: white;
+}
+
+
+body{
+    background-color: blueviolet;
+}
+
+.headerfont {
+    font-family:'Times New Roman', Times, serif;
+    font-size: xx-large;
+    color:beige;
+    margin-bottom: 0%;
+}
+
+.sub-headerfont {
+    font-family: 'Times New Roman', Times, serif;
+    color: beige;
+    font-style: italic; 
+    margin-top: 0%;
+}
+
+nav ul {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    margin: 0;
+    padding: 2%;
+}
+
+nav li{
+    display: inline;
+    padding: 10%;
+}
+
+nav a{
+    padding: 0.5em;
+    color: beige;
+    text-decoration: none;
+}
+
+nav a:hover{
+    background-color: rgba(255,255,255,0.3);
+}
+
+header{
+    background-image: url("Photos/keyboard.jpg");
+    background-size: cover; 
+    padding-bottom: 4%;
+}
+
+.schooling-txt{
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 4%;
+    color: white;
+}
+
+.email{
+padding-top: 35px; 
+/*Don't know what this perameter does^*/
+}
+
+.email-context{
+    color: white;
+    font-style: italic;
+    display: block;
+    padding: 20px;
+    text-align: center;
+}
+
+.email-button{
+  
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    display: inline-block;
+    color: white;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    background-color: blueviolet;
+
+    border-width: 2px;
+    border-style: solid;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-color: white;
+    /*
+    border: none; 
+    border-color: black;
+    background-color: purple;
+    */
+}
+
+.email-button-boarder{
+    padding-top: 20px;
+}
+.email-button:hover{
+background-color: white;
+color: blueviolet;
+
+}
+
+
+section.contact-form{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.container{
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 50px;
+    box-shadow: 0px 0px 20px black;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.form-group{
+    width: 100%;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.form-group input,
+.form-group textarea{
+    width: 100%;
+    padding: 5px;
+    font-size: 18px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    margin-top: 5px;
+}
+
+textarea{
+   resize: vertical;
+}
+
+button[type="submit"]{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 20px;
+    font-size: 24px;
+    border-radius: 8px;
+    color: rgba(200, 50, 200, 0.75);
+    background-color: rgba(128, 256, 0, 0);
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.6s ease background-color;
+}
+
+button[type="submit"]:hover{
+background-color: rgba(128, 256, 0, 0.2);
+}
+
+#status{
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 8px
+}
+
+#status.success{
+    background-color: rgb(190, 256, 140);
+}
+
+#status.error{
+    background-color: rgb(250,129,92);
+    color: white;
+}
+
+
+@keyframes status{
+    0%{
+        opacity: 1;
+        pointer-events: all;
+    }
+    90%{
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    100%
+}
+  
+
