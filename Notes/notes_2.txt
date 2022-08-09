@@ -1,0 +1,28 @@
+Learn how to style email 
+button in contact.
+
+Made button. Cool.
+
+Learning how to display the 
+context of the email text properly. Done.
+
+Add functionality to email button.
+
+Create new html.site for form 
+
+Follow totorial
+
+Use formspree api to send email requests
+
+
+
+
+Later: 
+    Start implamintation of game.
+    Make font bigger? (similar to marklupin.com)
+    Finish about page context.
+    Learn how to publish website to web.
+
+Write something else in this note.
+
+Look at js to figure out error messeage?

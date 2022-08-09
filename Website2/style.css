@@ -192,11 +192,13 @@ background-color: rgba(128, 256, 0, 0.2);
 
 #status.success{
     background-color: rgb(190, 256, 140);
+    animation: status 4s ease forwards;
 }
 
 #status.error{
     background-color: rgb(250,129,92);
     color: white;
+    animation: status 4s ease forwards;
 }
 
 
@@ -210,7 +212,10 @@ background-color: rgba(128, 256, 0, 0.2);
         pointer-events: all;
     }
 
-    100%
+    100%{
+        opacity: 0;
+        pointer-events: none;
+    }
 }
   
 

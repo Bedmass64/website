@@ -30,4 +30,8 @@ backround-image: url("fileName/nameOfImage.png")
 }
 
 
+Add class to email button for selection in js doc
+Edit js doc to use class
+
+"email-button"
 
