@@ -1,4 +1,6 @@
 For SimonGame.py file, when application started red goes transperent
 and does red beep 
 
-Gotta get a beep going
+Gotta get a beep going.
+
+Create start menu 

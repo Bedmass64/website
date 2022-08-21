@@ -1,11 +1,26 @@
 import pygame
+import sys
+pygame.init()
 
 
 
 #init variables ------------------------------------------------------------------------------
 #init background variables
+x = 600
+y = 400
+screen = pygame.display.set_mode((x,y))
 background_colour = (234,212,252)
-screen = pygame.display.set_mode((600,400))
+gamestate = 1
+clock = pygame.time.Clock()
+run = True
+mouse = pygame.mouse.get_pos()
+font = pygame.font.Font('freesansbold.ttf',32) #creates font object
+text = font.render('START', True, (255,0,0),(255,255,255,0.7))
+textRect = text.get_rect()
+textRect.center = (x//2,y//2)
+width = screen.get_width
+height = screen.get_height
+
 
 #mixer.init()
 #sound=mixer.Sound("bell.wav")
@@ -38,12 +53,18 @@ FPS = 60
 
 #PreRun Operations ------------------------------------------------------------------------------
 #Drawn Rectangles
-pygame.draw.rect(screen, rectColor1, pygame.Rect(rectStartX,rectStartY,rectWidth,rectHieght))
-pygame.draw.rect(screen, rectColor2, pygame.Rect(rectStartX + 70,rectStartY,rectWidth, rectHieght))
-pygame.draw.rect(screen, rectColor3, pygame.Rect(rectStartX,rectStartY + 70,rectWidth, rectHieght))
-pygame.draw.rect(screen, rectColor4, pygame.Rect(rectStartX + 70,rectStartY + 70,rectWidth, rectHieght))
 
-pygame.display.flip() #Updates display
+def draw_squares():
+    pygame.draw.rect(screen, rectColor1, pygame.Rect(rectStartX,rectStartY,rectWidth,rectHieght))
+    pygame.draw.rect(screen, rectColor2, pygame.Rect(rectStartX + 70,rectStartY,rectWidth, rectHieght))
+    pygame.draw.rect(screen, rectColor3, pygame.Rect(rectStartX,rectStartY + 70,rectWidth, rectHieght))
+    pygame.draw.rect(screen, rectColor4, pygame.Rect(rectStartX + 70,rectStartY + 70,rectWidth, rectHieght))
+
+def draw_start():
+    pygame.draw.rect(screen,rectColor1, pygame.Rect(230,170,140,60))
+    screen.blit(text,textRect)
+
+#pygame.display.flip() #Updates display
 
 
 
@@ -53,14 +74,40 @@ pygame.display.flip() #Updates display
 #Start menu -----------------------------------------------------------------------------------
 #NEEDS MENU (check gamestate before run)
 
+if (gamestate == 1):
+    while run: 
+        clock.tick(FPS)
+        draw_start()
+        pygame.display.update()
+        for event in pygame.event.get():
+
+            if event.type == pygame.QUIT:
+              run = False
+
+
+            '''
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if width/2 - 60 <= mouse[0] <= width/2 + 60 and height/2 - 30 <= mouse[1] <= height/2 + 30:
+                    #pygame.quit() # gamestate = 2
+                   # screen.fill(1,3,2)
+                   print("Hi hehe")
+               '''    
+
+
+
+
 #Game menu -----------------------------------------------------------------------------------
-run = True
-clock = pygame.time.Clock()
-while run:
-    for event in pygame.event.get():
+if (gamestate == 2):    
+    while run:   
+        clock.tick(FPS)  
+        draw_squares()
+        pygame.display.update() #Updates display
 
-        if event.type == pygame.QUIT:
-            running = False
+        for event in pygame.event.get():
+
+            if event.type == pygame.QUIT:
+                run = False
 
 
-    
+
+        
