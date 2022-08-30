@@ -18,6 +18,7 @@ background_colour = (234,212,252)
 gamestate = 1
 clock = pygame.time.Clock()
 run = True
+runstate = 1
 #gameRun = True #Veriable for game while loop to check for input #deleted veriable
 mouse = pygame.mouse.get_pos()
 font = pygame.font.Font('freesansbold.ttf',32) #creates font object
@@ -342,52 +343,86 @@ def get_input1():
 
 
 
-def get_input2():
+def get_input2_1():
     global gamestate 
     global run
-    runstate = 1
+    global runstate 
+    global userMove2
     if (event.type == pygame.MOUSEBUTTONDOWN and runstate == 1):
-        if (rectStartX) <= mouse[0] <= (rectStartX + rectWidth) and (rectStartY <= mouse[1] <= rectStartY + rectWidth):
+        if (rectStartX <= mouse[0] <= (rectStartX + rectWidth)) and (rectStartY <= mouse[1] <= rectStartY + rectWidth):
+            print("Red input worked!")
+            if(move1 != 1):
+                gamestate = 3
+                run = False
+                print("Gamestate = 3 Red get_input2")
+            else:
+                runstate = 2
+                run = False 
+
+        elif (rectStartX + 70 <= mouse[0] <= rectStartX + 70 + rectWidth) and (rectStartY <= mouse[1] <= rectStartY + rectWidth):
+            print("Green input worked!")
+            if(move1 != 2):
+                gamestate = 3
+                run = False
+                print("Gamestate = 3 Green get_input2")
+            else:
+                runstate = 2  
+                run = False                  
+
+        elif (rectStartX <= mouse[0] <= rectStartX + rectWidth) and (rectStartY + 70 <= mouse[1] <= rectStartY + 70 + rectWidth):
+            print("Blue input worked!")
+            if(move1 != 3):
+                gamestate = 3
+                run = False
+                print("Gamestate = 3 Blue get_input2")
+            else:
+                runstate = 2   
+                run = False               
+
+        elif (rectStartX + 70 <= mouse[0] <= rectStartX + 70 + rectWidth) and (rectStartY + 70 <= mouse[1] <= rectStartY + 70 + rectWidth):
+            print("Yellow input worked!")
+            if(move1 != 4):
+                gamestate = 3
+                run = False
+                print("Gamestate = 3 Yellow get_input2")
+            else:
+                runstate = 2   
+                run = False                  
+
+def get_input2_2():
+    global gamestate 
+    global run
+    global runstate 
+    global userMove2
+    if (event.type == pygame.MOUSEBUTTONDOWN and runstate == 2):
+        if event.type == pygame.MOUSEBUTTONDOWN:
             if (rectStartX <= mouse[0] <= (rectStartX + rectWidth)) and (rectStartY <= mouse[1] <= rectStartY + rectWidth):
                 print("Red input worked!")
-                if(move1 != 1):
-                    gamestate = 3
-                    run = False
-                    print("Gamestate = 3 Red get_input2")
-                else:
-                    runstate = 2
-                    run = False 
+                userMove2 = 1            
+                run = False
 
             elif (rectStartX + 70 <= mouse[0] <= rectStartX + 70 + rectWidth) and (rectStartY <= mouse[1] <= rectStartY + rectWidth):
                 print("Green input worked!")
-                if(move1 != 2):
-                    gamestate = 3
-                    run = False
-                    print("Gamestate = 3 Green get_input2")
-                else:
-                    runstate = 2  
-                    run = False                  
+                userMove2 = 2
+                run = False
 
             elif (rectStartX <= mouse[0] <= rectStartX + rectWidth) and (rectStartY + 70 <= mouse[1] <= rectStartY + 70 + rectWidth):
-                print("Blue input worked!")
-                if(move3 != 3):
-                    gamestate = 3
-                    run = False
-                    print("Gamestate = 3 Blue get_input2")
-                else:
-                    runstate = 2   
-                    run = False               
+                print("Blue input worked!")                
+                userMove2 = 3
+                run = False
 
             elif (rectStartX + 70 <= mouse[0] <= rectStartX + 70 + rectWidth) and (rectStartY + 70 <= mouse[1] <= rectStartY + 70 + rectWidth):
-                print("Yellow input worked!")
-                if(move1 != 4):
-                    gamestate = 3
-                    run = False
-                    print("Gamestate = 4 Yellow get_input2")
-                else:
-                    runstate = 2   
-                    run = False                  
-                    
+                print("Yellow input worked!")                
+                userMove2 = 4           
+                run = False
+
+            else:
+                print("I suspect you didn't click near a square")
+
+            if(move2 != userMove2):
+                gamestate = 3
+                print("Gamestate 3 chance get_input2_2")
+                run = False
                 
 
 
@@ -562,7 +597,25 @@ if (gamestate == 2):
     if gamestate == 2:
         draw_game() 
         run = True
+    '''
+    while run2:
+        clock.tick(FPS) 
+        mouse = pygame.mouse.get_pos() 
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                gamestate = 4
+                run = False
+            
+            get_input2_1() #In while loop
+            print("runstate = ", runstate)
 
+            if (moveNumber == 8):
+                gamestate = 4
+                run = False
+
+
+    pygame.time.wait(4000)
+    
     while run:
         clock.tick(FPS) 
         mouse = pygame.mouse.get_pos() 
@@ -571,7 +624,7 @@ if (gamestate == 2):
                 gamestate = 4
                 run = False
             
-            get_input2() #In while loop
+            get_input2_2() #In while loop
 
             if (moveNumber == 8):
                 gamestate = 4
@@ -581,26 +634,13 @@ if (gamestate == 2):
         draw_game() 
         run = True
 
-    while run:
-        clock.tick(FPS) 
-        mouse = pygame.mouse.get_pos() 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
-            
-            get_input2() #In while loop
-
-            if (moveNumber == 8):
-                run = False
-
+    '''
     print("move1 = ", move1)
     print("move2 = ", move2)
     print("move3 = ", move3)
     print("move4 = ", move4)
-    print("move5 = ", move5)
-    print("move6 = ", move6)
-    print("move7 = ", move7)
-    print("move8 = ", move8)
+
+    print("moveNumber = ", moveNumber)
 #End menu -----------------------------------------------------------------------------------
 run = True
 if (gamestate == 3):  
@@ -615,9 +655,7 @@ if (gamestate == 3):
       #  print("Mouse[1]", mouse[1])
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-              run = False
-
-
+                run = False
             
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if ((width/2) - 60) <= mouse[0] <= ((width/2) + 60) and ((height/2) - 30) <= mouse[1] <= ((height/2) + 30):
