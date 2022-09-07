@@ -1,3 +1,7 @@
+#Numbered veriables - Use array instead
+#Delete width and height variables 
+
+
 #Imports ---------------------------------------------------
 import pygame
 import random 
@@ -31,13 +35,19 @@ gamestate = 1
 clock = pygame.time.Clock() #Clock? Yes
 FPS = 60
 moveNumber = 0
-
 mouse = pygame.mouse.get_pos()
 
-font = pygame.font.Font('freesansbold.ttf',32) #creates font object
-startText = font.render('START', True, (255,0,0),(255,255,255,0.7)) #Renders words to text
-failureText = font.render('Failure!', True, (255,0,0),(255,255,255,0.7))
-successText = font.render('Success!', True, (0,255,0),(255,255,255,0.7))
+largeFont = pygame.font.Font('freesansbold.ttf',32) #Creates large font object
+smallFont = pygame.font.Font('freesansbold.ttf', 20) #Creates small font object 
+
+startText = largeFont.render('START', True, (255,200,170),(255,0,0,0.7)) #Renders words to text
+easyText = smallFont.render('Easy', True, (255,0,0),(255,255,255,0.7)) #Renders words to text
+mediumText = smallFont.render('Medium', True, (255,0,0),(255,255,255,0.7)) #Renders words to text
+hardText = smallFont.render('Hard', True, (255,0,0),(255,255,255,0.7)) #Renders words to text
+insaneText = smallFont.render('Insane', True, (255,0,0),(255,255,255,0.7)) #Renders words to text
+
+failureText = largeFont.render('Failure!', True, (255,0,0),(255,255,255,0.7))
+successText = largeFont.render('Success!', True, (0,255,0),(255,255,255,0.7))
 
 startTextRect = startText.get_rect()       #Renders rectangle fo text
 startTextRect.center = (x//2,y//2)
@@ -47,6 +57,19 @@ failureTextRect.center = (x//2,y//2)
 
 successTextRect = successText.get_rect()
 successTextRect.center = (x//2,y//2)
+
+startTextRect = startText.get_rect()
+startTextRect.center = (x//2,y//2)
+
+easyTextRect = mediumText.get_rect()
+mediumTextRect = mediumText.get_rect()
+hardTextRect = hardText.get_rect() 
+insaneTextRect = insaneText.get_rect()
+
+easyTextRect.center = (x//2,65)
+mediumTextRect.center = (x//2,145)
+hardTextRect.center = (x//2,225)
+insaneTextRect.center = (x//2,305)
 
 width = screen.get_width()  
 height = screen.get_height()
@@ -162,8 +185,15 @@ def draw_start():
     while (run):
         clock.tick(FPS)
         mouse = pygame.mouse.get_pos()
-        pygame.draw.rect(screen,rectColor1, pygame.Rect(230,170,140,60))
-        screen.blit(startText,startTextRect)
+        pygame.draw.rect(screen,rectColor1, pygame.Rect(230,50,140,60))
+        pygame.draw.rect(screen,rectColor1, pygame.Rect(230,130,140,60))
+        pygame.draw.rect(screen,rectColor1, pygame.Rect(230,210,140,60))
+        pygame.draw.rect(screen,rectColor1, pygame.Rect(230,290,140,60))
+        screen.blit(easyText,easyTextRect)
+        screen.blit(mediumText,mediumTextRect)
+        screen.blit(hardText,hardTextRect)
+        screen.blit(insaneText,insaneTextRect)
+
         pygame.display.update()
 
         for event in pygame.event.get():
@@ -1039,3 +1069,5 @@ if (gamestate == 3):
 
 if (gamestate == 4):
     draw_success_screen()
+
+
