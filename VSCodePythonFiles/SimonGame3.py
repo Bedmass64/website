@@ -1039,4 +1039,3 @@ if (gamestate == 3):
 
 if (gamestate == 4):
     draw_success_screen()
-
